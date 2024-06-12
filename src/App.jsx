@@ -1,7 +1,7 @@
-import RandomQuote from "./RandomQuote";
+import HackerNewsTop10 from "./HackerNewsTop10";
 
 function App() {
-  return <RandomQuote />;
+  return <HackerNewsTop10 />;
 }
 
 export default App;
