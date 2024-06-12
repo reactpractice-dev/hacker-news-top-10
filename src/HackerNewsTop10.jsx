@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const fetchArticleDetails = async (articleId) => {
   const articleResponse = await fetch(
@@ -17,14 +17,40 @@ const fetchTop10Articles = async () => {
   const articles = await Promise.all(
     top10Articles.map((articleId) => fetchArticleDetails(articleId))
   );
-  console.log(articles);
+  return articles;
 };
 
 const HackerNewsTop10 = () => {
+  const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
-    fetchTop10Articles();
+    setIsLoading(true);
+    fetchTop10Articles().then((articles) => {
+      setIsLoading(false);
+      setArticles(articles);
+    });
   }, []);
-  return <div>Build your component here!</div>;
+  return (
+    <div>
+      {isLoading ? (
+        <p>Loading ...</p>
+      ) : (
+        <ul>
+          {articles.map((article) => (
+            <li key={article.id}>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <a href={article.url}>{article.title}</a>
+                <span>
+                  {article.score} by {article.by}
+                </span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 };
 
 export default HackerNewsTop10;
