@@ -1,17 +1,21 @@
-# React + Vite
+# Show top 10 articles from Hacker News
 
-Basic React boilerplate using Vite.
+> This repository is the companion to the ["Show top 10 articles from Hacker News"](https://reactpractice.dev/exercise/show-top-10-articles-from-hacker-news/) practice exercise.
 
-Starts off from the React Javascript Vite template ([@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh)
+Build a React component that shows a list of 10 articles from the Hacker News API.
 
-Adds on top:
+- use the Hacker News "Top Articles" API \*
+- for each article, display its score, title, url and author
+- do not display the article details until all the data is loaded
 
-- support for testing React components with `vitest` and React Testing Library
-- support for mocking HTTP requests in tests using `msw`
+\* you'll notice I did not include a link to the API - this is on purpose! Looking up the API documentation and figuring out what endpoint to use is part of the challenge.
 
-Getting started:
+To get started, you can clone this starter repo.
+When you're ready to check your work, check out [the official solution](https://reactpractice.dev/solution/tutorial-show-top-10-articles-from-hacker-news/).
+
+## Getting started:
 
 - `npm install`
 - `npm run dev`
 
-To run the tests: `npm run test`.
+Add your code to the `src/HackerNewsTop10.jsx` file.
